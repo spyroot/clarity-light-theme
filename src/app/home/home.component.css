@@ -1,0 +1,17 @@
+:host(), .side-nav {
+  height: 100%;
+}
+
+:host() {
+  display: flex;
+}
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+clr-datagrid {
+  height: 100%;
+}

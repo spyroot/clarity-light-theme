@@ -1,0 +1,49 @@
+<div class="content-container">
+	<main class="content-area">
+		<div class="parent">
+			<h1>Users</h1>
+			<div class="toolbar">
+				<button class="btn btn-sm">Refresh</button>
+        <button class="btn btn-sm">Export</button>
+      </div>
+      
+      <clr-datagrid [(clrDgSelected)]="selected">
+			<clr-dg-column [clrDgField]="'id'">User ID</clr-dg-column>
+			<clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+			<clr-dg-column [clrDgField]="'creation'">Creation date</clr-dg-column>
+			<clr-dg-column [clrDgField]="'color'">Favorite color</clr-dg-column>
+
+			<clr-dg-row *clrDgItems="let user of users" [clrDgItem]="user">
+				<clr-dg-cell>{{ user.id }}</clr-dg-cell>
+				<clr-dg-cell>{{ user.name }}</clr-dg-cell>
+				<clr-dg-cell>{{ user.creation | date }}</clr-dg-cell>
+				<clr-dg-cell>{{ user.color }}</clr-dg-cell>
+			</clr-dg-row>
+
+			<clr-dg-footer>
+				<clr-dg-pagination #pagination [clrDgPageSize]="10">
+					<clr-dg-page-size [clrPageSizeOptions]="[10, 20, 50, 100]">Users per page</clr-dg-page-size>
+					{{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of {{ pagination.totalItems }} users
+				</clr-dg-pagination>
+			</clr-dg-footer>
+			STRING FILTERING
+		</clr-datagrid>
+		</div>
+		<router-outlet></router-outlet>
+	</main>
+
+	<nav class="sidenav">
+		<section class="sidenav-content">
+			<section class="nav-group">
+				<input id="tabexample2" type="checkbox">
+            <label for="tabexample2">Default Nav Element</label>
+            <ul class="nav-list">
+                <li><a routerLink="child-link1" routerLinkActive="active" class="nav-link">Link 1</a></li>
+                <li><a routerLink="child-link2" routerLinkActive="active" class="nav-link">Link 2</a></li>
+                <li><a routerLink="child-link3" routerLinkActive="active" class="nav-link">Link 3</a></li>
+                
+            </ul>
+        </section>
+      </section>
+  </nav>
+</div>
